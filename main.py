@@ -5,7 +5,11 @@ import sys
 bot = Zect()
 
 extensions = [
+    "cogs.admin",
+    "cogs.check",
     "slash.vq",
+    "slash.point",
+    "slash.rank",
 ]
 for extension in extensions:
     bot.load_extension(extension)

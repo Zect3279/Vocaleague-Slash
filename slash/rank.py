@@ -5,9 +5,9 @@ from discord_slash.utils import manage_commands
 
 import asyncio
 
-from lib.qu import Vocaleague
+from lib.point import Point
 
-class SlashVQ(commands.Cog):
+class SlashRank(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.db = bot.db
@@ -18,21 +18,20 @@ class SlashVQ(commands.Cog):
 
     # コマンドの定義はcog_ext.cog_slashデコレータを使う
     @cog_ext.cog_slash(
-    name='vq',
-    description='Vocaleague開始',
+    name='ranking',
+    description='Vocaleagueのポイントランキングを表示',
     guild_ids=[720566804094648330,808283612105408533,726233332655849514]
     )
     async def slash_say(self, ctx: SlashContext):
 
-        if str(ctx.channel.id) in self.system.on:
-            await ctx.send("すでに起動しています")
 
         # if ctx.author != self.bot.get_user(653785595075887104):
         #     await ctx.send("あなたには使用する権限がありません。 \nYou don't have the privilege to use this.")
         #     return
 
-        await ctx.respond(eat=False) # eat=Falseでログを出す
-        await Vocaleague(self.bot).start(ctx)
+        await ctx.respond(eat=True) # eat=Falseでログを出す
+        txt = await Point(self.bot).ranking(ctx)
+        await ctx.send(content=txt, hidden=True) # hidden=Trueで実行した人のみにみえるように
 
 
     def cog_unload(self):
@@ -40,4 +39,4 @@ class SlashVQ(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(SlashVQ(bot))
+    bot.add_cog(SlashRank(bot))
