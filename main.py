@@ -1,8 +1,9 @@
-from os import environ
 from bot import Zect
-import sys
+import setting
 
 bot = Zect()
+
+BOT_TOKEN = setting.BOT
 
 extensions = [
     "cogs.admin",
@@ -14,6 +15,4 @@ extensions = [
 for extension in extensions:
     bot.load_extension(extension)
 
-bot.run(environ["BOT_TOKEN"])
-
-# bot.run(BOT_TOKEN)
+bot.run(BOT_TOKEN)
