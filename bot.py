@@ -1,6 +1,5 @@
 from discord.ext import commands
-from discord_slash import SlashCommand, cog_ext, SlashContext
-from discord_slash.utils import manage_commands
+from discord_slash import SlashCommand
 
 from os import environ
 from lib.database import Database

@@ -28,7 +28,10 @@ class Admin(commands.Cog):
     async def on(self,ctx):
         print(self.system.on)
 
-
+    @commands.command()
+    async def reset(self,ctx):
+        await self.db.reset()
+        await ctx.send("ポイントを初期化しました")
 
 
 
