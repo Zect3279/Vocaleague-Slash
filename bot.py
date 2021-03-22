@@ -12,7 +12,7 @@ import json
 class Zect(commands.Bot):
     def __init__(self):
         super().__init__(
-            command_prefix=commands.when_mentioned_or(environ.get('PREFIX', '/')),
+            command_prefix=commands.when_mentioned_or(environ.get('PREFIX', './')),
             help_command=None,
         )
         self.db = Database(self)
