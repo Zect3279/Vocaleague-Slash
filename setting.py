@@ -8,3 +8,4 @@ dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 BOT = os.environ.get("BOT")
+MONGO = os.environ.get("MONGO")
