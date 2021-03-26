@@ -29,9 +29,9 @@ class SlashPoint(commands.Cog):
         #     await ctx.send("あなたには使用する権限がありません。 \nYou don't have the privilege to use this.")
         #     return
 
-        await ctx.respond(eat=True) # eat=Falseでログを出す
+        await ctx.respond(eat=False) # eat=Falseでログを出す
         txt = await Point(self.bot).point(ctx,user)
-        await ctx.send(content=txt, hidden=True) # hidden=Trueで実行した人のみにみえるように
+        await ctx.send(content=txt, hidden=False) # hidden=Trueで実行した人のみにみえるように
 
 
     def cog_unload(self):
